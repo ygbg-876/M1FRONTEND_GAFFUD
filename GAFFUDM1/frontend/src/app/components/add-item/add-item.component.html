@@ -1,0 +1,34 @@
+<div class="form-container">
+    <h1 class="page-title">Add New Item</h1>
+
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div>
+            <label>Item Name</label>
+            <input type="text" name="name" required
+                   [(ngModel)]="item.name" placeholder="e.g., Strawberry Syrup">
+        </div>
+
+        <div>
+            <label>Code</label>
+            <input type="text" name="code" required
+                   [(ngModel)]="item.code" placeholder="e.g., SYR-STW">
+        </div>
+
+        <div>
+            <label>Brand</label>
+            <input type="text" name="brand" required
+                   [(ngModel)]="item.brand" placeholder="e.g., Torani">
+        </div>
+
+        <div>
+            <label>Unit Price</label>
+            <input type="number" name="unitPrice" required
+                   [(ngModel)]="item.unitPrice" placeholder="e.g., 500.00">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit">Add Item</button>
+            <a routerLink="/" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>

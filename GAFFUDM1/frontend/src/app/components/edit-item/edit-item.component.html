@@ -1,0 +1,54 @@
+<div class="form-container">
+    <h1 class="page-title">Edit Item</h1>
+
+    <form (ngSubmit)="onSubmit()" #f="ngForm">
+        <div class="form-group">
+            <label for="name">Item Name</label>
+            <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                [(ngModel)]="item.name"
+                placeholder="e.g., Strawberry Syrup">
+        </div>
+
+        <div class="form-group">
+            <label for="code">Code</label>
+            <input
+                type="text"
+                id="code"
+                name="code"
+                required
+                [(ngModel)]="item.code"
+                placeholder="e.g., SYR-STW">
+        </div>
+
+        <div class="form-group">
+            <label for="brand">Brand</label>
+            <input
+                type="text"
+                id="brand"
+                name="brand"
+                required
+                [(ngModel)]="item.brand"
+                placeholder="e.g., Torani">
+        </div>
+
+        <div class="form-group">
+            <label for="unitPrice">Unit Price</label>
+            <input
+                type="number"
+                id="unitPrice"
+                name="unitPrice"
+                required
+                [(ngModel)]="item.unitPrice"
+                placeholder="e.g., 500.00">
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="btn-primary">Save Changes</button>
+            <a routerLink="/" class="btn-cancel">Cancel</a>
+        </div>
+    </form>
+</div>

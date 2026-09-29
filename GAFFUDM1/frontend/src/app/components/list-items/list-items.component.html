@@ -1,0 +1,42 @@
+<div class="page-container">
+    <div class="page-header">
+        <h1>Item Inventory</h1>
+        <a routerLink="/add" class="btn-add">+ Add New Item</a>
+    </div>
+
+    <div *ngIf="items && items.length > 0; else noItems" class="table-card">
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Code</th>
+                    <th>Brand</th>
+                    <th>Unit Price</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of items">
+                    <td>{{ item.id }}</td>
+                    <td>
+                        <a [routerLink]="['/items', item.id]">{{ item.name }}</a>
+                    </td>
+                    <td>{{ item.code }}</td>
+                    <td>{{ item.brand }}</td>
+                    <td>₱{{ item.unitPrice | number:'1.2-2' }}</td>
+                    <td>
+                        <a [routerLink]="['/edit', item.id]" class="btn-edit">Edit</a>
+                        <button (click)="deleteItem(item.id)" class="btn-delete">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <ng-template #noItems>
+        <div class="table-card">
+            <p style="text-align: center;">No items found. Click "Add New Item" to get started.</p>
+        </div>
+    </ng-template>
+</div>
